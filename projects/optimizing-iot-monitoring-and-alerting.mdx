@@ -1,0 +1,43 @@
+---
+title: Optimizing IoT Monitoring and Alerting
+description: Developed a Grafana-based IoT monitoring solution for Powered-Storage, featuring dashboards, custom alerts, and data integration. Replaced legacy systems to reduce maintenance costs and enable value-added services for end-users.
+
+date: "2024-12-02"
+authors: ['mehrshad']
+tags: ['ec2', 'mongodb', 'aws', 'terraform']
+url: 
+published: true
+---
+
+## **Client Overview**
+
+- Industry: Parking spaces
+- Scope: Monitoring IoT devices
+- Company size: 1-10 people
+
+A provider of rental spaces, based in the US. Part of a larger group with multiple specialized brands. It offers end-customer parking spaces with electricity connectivity. Customer can also measure the temperature of their units via sensors provided for them. One of the marketing strategies of company is to through providing software solutions. They provide access to a self-maintained application.
+
+## **Project Overview**
+
+The project was initially to setup dashboards on Grafana to depict data related to the temperature and power of units, and continued with setting alerts based on the condition of units. They have a development team of one person in Budapest, and they were not satisfied with the services. They wanted to have a low-code solution where they can change the logic of application themselves, and they were not tight to one group of development team.
+
+One of the main pinpoints of their team was the maintenance of their legacy application. They wanted to have the same experience on Grafana. We proposed writing an application to provide the same experience.
+
+We also provided alerting for the end customers. Users could set alerts for their units based on temperature and power usage.
+
+There were two challenges regarding the project:
+
+- We wanted to make the alerting system as simple as possible for end customers, and we had to write our own wrapper of Grafana alerting. That required us (Thanks to @Farshad) to dig into Grafana APIs and SDK.
+- We also had to get to know the sources of data, storeganise, next-century, and Tago. That took us time to get to know the technologies used.
+
+## **Approach & Implementation**
+
+We started with the dashboards. We got some insight from data. We then setup a simple scenes to depict data in table format via Grafana scenes. With a bit push from the powered-storage team we extended the tables with Storeganise data.  At the end, we setup alerting.
+
+- Created a dashboard on Grafana and got trust from client that we know how Grafana works
+- Setup alerts on Grafana and client was able to receive text for the alerts
+- Proposed Grafana application solution.
+
+## **Results**
+
+Now they can reuse Grafana's provided features such as user management and alerting at maintenance. They were able to decommission their legacy code and have started a strategy to aggregate all their application solutions in one Grafana instance. As a result the client is planing to sell the application as an add-on service to their customers.
